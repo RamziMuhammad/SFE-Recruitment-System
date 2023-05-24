@@ -10,31 +10,40 @@ const { isAuthorizedUser } = require("../middlewares/checkRole"),
 
 const {
   getAllApplicants,
-  getApplicantById,
+  getApplicant,
   deleteAllApplicants,
+  deleteApplicant,
 } = require("../controllers/adminController");
-
-adminRouter.get(
-  "/",
-  currentUser,
-  requireAuth,
-  isAuthorizedUser("app"),
-  getAllApplicants
-);
 
 adminRouter.get(
   "/:id",
   currentUser,
   requireAuth,
-  isAuthorizedUser("admin"),
-  getApplicantById
+  isAuthorizedUser(),
+  getApplicant
+);
+
+adminRouter.get(
+  "/",
+  currentUser,
+  requireAuth,
+  isAuthorizedUser(),
+  getAllApplicants
 );
 
 adminRouter.delete(
-  "/delete-applicants/",
+  "/:id",
   currentUser,
   requireAuth,
-  isAuthorizedUser("admin"),
+  isAuthorizedUser(),
+  deleteApplicant
+);
+
+adminRouter.delete(
+  "/",
+  currentUser,
+  requireAuth,
+  isAuthorizedUser(),
   deleteAllApplicants
 );
 

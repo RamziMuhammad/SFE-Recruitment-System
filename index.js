@@ -1,10 +1,11 @@
 const mongoose = require("mongoose"),
   { app } = require("./app.js"),
-  port = 3000;
+  url = "mongodb://127.0.0.1:27017/SFE-RS";
+const PORT = process.env.PORT || 3000;
 
-app.listen(port, async () => {
-  await mongoose.connect(
-    "mongodb+srv://RamziMuhammad:l6GeofOKP9TpYNxf@maincluster.6xxlif0.mongodb.net/SFE-API"
-  );
-  console.log(`Listening on port ${port} ...`);
+app.listen(PORT, async () => {
+  await mongoose
+    .connect(url, {}) // The second parameter is for the security profitable update
+    .then((result) => console.log(`Listening on port ${PORT} ...`))
+    .catch((err) => console.log(err));
 });

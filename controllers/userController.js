@@ -16,17 +16,19 @@ const signUp = async (req, res) => {
     // res.status(400).send("This email is reserved!");
   } else {
     // Add new user
-    const newUser = new User({
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password,
-      age: req.body.age,
-      major: req.body.major,
-      role: req.body.role,
-    });
+    const newUser = await User.create(req.body);
 
-    // Save the new user in the database
-    newUser.save();
+    // const newUser = new User({
+    //   name: req.body.name,
+    //   email: req.body.email,
+    //   password: req.body.password,
+    //   age: req.body.age,
+    //   major: req.body.major,
+    //   role: req.body.role,
+    // });
+
+    // // Save the new user in the database
+    // newUser.save();
 
     res.status(200).send("User created.");
   }
@@ -44,13 +46,15 @@ const signIn = async (req, res) => {
           console.error(err);
         } else {
           if (result) {
-            console.log("Password is valid.");
+            console.log("Signed in ...");
 
             // Generate JWT
             const userJwt = jwt.sign(
               {
-                id: user.id,
+                _id: user._id,
                 email: user.email,
+                age: user.age,
+                major: user.major,
                 role: user.role,
               },
               process.env.JWT_KEY
@@ -61,13 +65,15 @@ const signIn = async (req, res) => {
               jwt: userJwt,
             };
 
-            console.log(req.session);
-
-            res
-              .status(200)
-              .json({ _id: user._id, email: user.email, role: user.role });
+            res.status(200).json({
+              // We can use send(), will gain the same result
+              _id: user._id,
+              email: user.email,
+              age: user.age,
+              major: user.major,
+              role: user.role,
+            });
           } else {
-            console.log("Password is invalid.");
             res.status(400).send("Invalid password!");
           }
         }
@@ -76,10 +82,6 @@ const signIn = async (req, res) => {
   } else {
     res.status(400).send("Invalid email!");
   }
-};
-
-var saveSession = function (req, role) {
-  req.session.role = role;
 };
 
 module.exports = {
