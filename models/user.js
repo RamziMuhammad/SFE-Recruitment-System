@@ -6,17 +6,12 @@ const mongoose = require("mongoose"),
 const userSchema = Schema({
   name: {
     type: String,
-    // required: true,
   },
   email: {
     type: String,
-    // required: true,
-    // unique: true,
-    // match: /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,
   },
   password: {
     type: String,
-    // required: true,
   },
   age: {
     type: Number,
@@ -28,7 +23,6 @@ const userSchema = Schema({
   },
   role: {
     type: String,
-    // enum: ["admin", "applicant"],
     default: "applicant",
   },
 });

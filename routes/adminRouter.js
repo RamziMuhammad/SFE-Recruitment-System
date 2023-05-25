@@ -1,12 +1,9 @@
 const { Router } = require("express"),
-  { body } = require("express-validator"),
   adminRouter = Router();
 
 const { isAuthorizedUser } = require("../middlewares/checkRole"),
   currentUser = require("../middlewares/current-user"),
-  errorHandler = require("../middlewares/error-handler"),
-  requireAuth = require("../middlewares/require-auth"),
-  validateRequest = require("../middlewares/validate-request");
+  requireAuth = require("../middlewares/require-auth");
 
 const {
   getAllApplicants,

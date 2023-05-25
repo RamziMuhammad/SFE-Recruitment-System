@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload Video</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        max-width: 400px;
+        padding: 40px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .custom-file-upload {
+        display: inline-block;
+        padding: 12px 20px;
+        background-color: dodgerblue;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .custom-file-upload:hover {
+        background-color: #428bca;
+      }
+
+      .submit-btn {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        background-color: dodgerblue;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .submit-btn:hover {
+        background-color: #428bca;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Upload Video</h2>
+      <form id="uploadForm">
+        <div class="form-group">
+          <label for="video">Choose a video:</label>
+          <input type="file" id="myVideo" name="video" accept="video/*" />
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </div>
+
+    <!-- JavaScript Part -->
+    <script>
+      const form = document.getElementById("uploadForm");
+
+      const sendFiles = async () => {
+        // Object
+        const myFiles = document.getElementById("myVideo").files;
+
+        const formData = new FormData();
+
+        Object.keys(myFiles).forEach((key) => {
+          formData.append(myFiles.item(key).name, myFiles.item(key));
+        });
+
+        const response = await fetch(
+          "http://localhost:3000/sfe-rs/applicant/upload",
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
+
+        const json = await response.json();
+        console.log(json);
+      };
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        sendFiles();
+      });
+    </script>
+  </body>
+</html>

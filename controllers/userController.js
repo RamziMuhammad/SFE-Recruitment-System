@@ -17,19 +17,6 @@ const signUp = async (req, res) => {
   } else {
     // Add new user
     const newUser = await User.create(req.body);
-
-    // const newUser = new User({
-    //   name: req.body.name,
-    //   email: req.body.email,
-    //   password: req.body.password,
-    //   age: req.body.age,
-    //   major: req.body.major,
-    //   role: req.body.role,
-    // });
-
-    // // Save the new user in the database
-    // newUser.save();
-
     res.status(200).send("User created.");
   }
 };
@@ -46,7 +33,7 @@ const signIn = async (req, res) => {
           console.error(err);
         } else {
           if (result) {
-            console.log("Signed in ...");
+            console.log(`${user.name} signedin`);
 
             // Generate JWT
             const userJwt = jwt.sign(
@@ -66,12 +53,8 @@ const signIn = async (req, res) => {
             };
 
             res.status(200).json({
-              // We can use send(), will gain the same result
-              _id: user._id,
-              email: user.email,
-              age: user.age,
-              major: user.major,
-              role: user.role,
+              status: "Success",
+              message: `Signed in Successfully`,
             });
           } else {
             res.status(400).send("Invalid password!");

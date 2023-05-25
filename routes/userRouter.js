@@ -2,12 +2,12 @@ const { Router } = require("express"),
   userRouter = Router(),
   { body } = require("express-validator");
 
+const path = require("path");
+
 const { signIn, signUp } = require("../controllers/userController");
 
 const { isAuthorizedUser } = require("../middlewares/checkRole"),
   currentUser = require("../middlewares/current-user"),
-  errorHandler = require("../middlewares/error-handler"),
-  requireAuth = require("../middlewares/require-auth"),
   validateRequest = require("../middlewares/validate-request");
 
 userRouter.post(
@@ -39,6 +39,10 @@ userRouter.post(
   isAuthorizedUser("admin"),
   signUp
 );
+
+userRouter.get("/signin/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/signIn.html"));
+});
 
 userRouter.post(
   "/signin/",
