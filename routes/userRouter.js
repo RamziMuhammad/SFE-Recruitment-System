@@ -1,14 +1,21 @@
-const { Router } = require("express"),
-  userRouter = Router(),
-  { body } = require("express-validator");
+const express = require("express"),
+  userRouter = express.Router();
+
+const { body } = require("express-validator");
 
 const path = require("path");
+const directoryPath = path.dirname(require.main.filename);
+userRouter.use(express.static(path.join(directoryPath, "statics")));
 
 const { signIn, signUp } = require("../controllers/userController");
 
 const { isAuthorizedUser } = require("../middlewares/checkRole"),
   currentUser = require("../middlewares/current-user"),
   validateRequest = require("../middlewares/validate-request");
+
+userRouter.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/home.html"));
+});
 
 userRouter.post(
   "/signup/",
@@ -40,8 +47,8 @@ userRouter.post(
   signUp
 );
 
-userRouter.get("/signin/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../views/signIn.html"));
+userRouter.get("/registration/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/registration.html"));
 });
 
 userRouter.post(

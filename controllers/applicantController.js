@@ -6,7 +6,6 @@ const path = require("path");
 const directoryPath = path.dirname(require.main.filename);
 
 const spawn = require("child_process").spawn;
-const vidoePath = "Ramzi";
 
 const getMyInfo = async (req, res) => {
   try {
@@ -28,7 +27,9 @@ const uploadVideo = async (req, res) => {
   const files = req.files;
 
   Object.keys(files).forEach((key) => {
-    const filepath = path.join(__dirname, "../Videos", files[key].name); // __dirname refers to node project directory
+    // const filepath = path.join(__dirname, "../videos", files[key].name);
+    const filepath = path.join(__dirname, "../videos", files[key].name); // __dirname refers to node project directory
+    vidoePath = `${directoryPath}/videos/${files[key].name}`;
     files[key].mv(filepath, (err) => {
       if (err) return res.status(500).json({ status: "error", message: err }); // 500 status for server error
     });
@@ -36,7 +37,8 @@ const uploadVideo = async (req, res) => {
 
   const pythonProcess = spawn("python", [
     `${directoryPath}\\Recognition-Model.py`,
-    vidoePath,
+    directoryPath,
+    vidoePath, // The video name
   ]);
 
   pythonProcess.stdout.on("data", (data) => {

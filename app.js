@@ -9,6 +9,8 @@ const errorHandler = require("./middlewares/error-handler");
 const NotFoundError = require("./errors/not-found-error");
 
 const app = express();
+const path = require("path");
+
 app.use(express.json());
 
 app.use(cookieParser());
@@ -25,6 +27,9 @@ app.use(
   })
 );
 
+app.set("view engine", "ejs");
+app.set("views", "views");
+
 const { userRouter } = require("./routes/userRouter");
 const { adminRouter } = require("./routes/adminRouter");
 const { applicantRouter } = require("./routes/applicantRouter");
@@ -33,9 +38,9 @@ app.use("/sfe-rs/", userRouter);
 app.use("/sfe-rs/admin/", adminRouter);
 app.use("/sfe-rs/applicant/", applicantRouter);
 
-app.all("*", async (req, res) => {
-  throw new NotFoundError();
-});
+// app.all("*", async (req, res) => {
+//   throw new NotFoundError();
+// });
 
 module.exports = {
   app,

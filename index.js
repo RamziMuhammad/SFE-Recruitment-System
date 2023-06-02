@@ -3,6 +3,8 @@ const mongoose = require("mongoose"),
   url = "mongodb://127.0.0.1:27017/SFE-RS";
 const PORT = process.env.PORT || 3000;
 
+const path = require("path");
+
 app.listen(PORT, async () => {
   await mongoose
     .connect(url, {}) // The second parameter is for the security profitable update
