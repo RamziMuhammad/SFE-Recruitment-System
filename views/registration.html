@@ -4,13 +4,11 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>Index</title>
+    <title>Registration | SFE-RS</title>
     <meta content="" name="description" />
     <meta content="" name="keywords" />
-    <link rel="stylesheet" href="animate.min.css" />
-    <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon" />
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <link href="assets/img/SFE-RS.png" rel="icon" />
 
     <!-- Google Fonts -->
     <link
@@ -36,7 +34,8 @@
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
     <!-- Template Main CSS File -->
-    <link href="assets/css/login-signup.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/registration.css" rel="stylesheet" />
 
     <!-- =======================================================
     * Template Name: Scaffold
@@ -48,92 +47,239 @@
   </head>
   <body>
     <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center">
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li>
+              <a class="nav-link scrollto" href="./">Home</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="./#about">About</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="./#services">Services</a>
+            </li>
+
+            <li><a class="nav-link scrollto" href="./#team">Team</a></li>
+
+            <li><a class="nav-link scrollto" href="./#contact">Contact</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+      </div>
+    </header>
+    <!-- End Header -->
 
     <div class="box">
-      <img src="./assets/img/hero-img.png" class="updown-animation" alt="" />
+      <img src="./assets/img/Hero-Img.png" class="updown-animation" alt="" />
     </div>
     <div class="login-wrap">
-      <form>
-        <div class="login-html">
-          <input
-            id="tab-1"
-            type="radio"
-            name="tab"
-            class="sign-in"
-            checked
-          /><label for="tab-1" class="tab">Sign In</label>
-          <input id="tab-2" type="radio" name="tab" class="sign-up" /><label
-            for="tab-2"
-            class="tab"
-            >Sign Up</label
-          >
-          <div class="login-form">
-            <form id="signInForm">
-              <div class="sign-in-htm">
-                <div class="group">
-                  <label for="email" class="label">Email</label>
-                  <input id="email" type="email" class="input" required />
-                </div>
-                <div class="group">
-                  <label for="password" class="label">Password</label>
-                  <input
-                    id="password"
-                    type="password"
-                    class="input"
-                    data-type="password"
-                    required
-                  />
-                </div>
-                <div class="group">
-                  <input type="submit" class="button" value="Sign In" />
-                </div>
+      <div class="login-html">
+        <input
+          id="tab-1"
+          type="radio"
+          name="tab"
+          class="sign-in"
+          checked
+        /><label for="tab-1" class="tab">Sign In</label>
+        <input id="tab-2" type="radio" name="tab" class="sign-up" /><label
+          for="tab-2"
+          class="tab"
+          >Sign Up</label
+        >
+        <div class="login-form">
+          <form class="form" id="signInForm">
+            <div class="sign-in-htm">
+              <div class="group">
+                <label for="email" class="label">Email Address</label>
+                <input
+                  type="email"
+                  id="mail"
+                  name="email"
+                  class="input"
+                  required
+                />
               </div>
-            </form>
-            <form>
-              <div class="sign-up-htm">
-                <div class="group">
-                  <label for="username" class="label">Username</label>
-                  <input id="username" type="text" class="input" />
-                </div>
-                <div class="group">
-                  <label for="email" class="label">Email Address</label>
-                  <input id="email" type="text" class="input" />
-                </div>
-                <div class="group">
-                  <label for="password" class="label">Password</label>
-                  <input
-                    id="password"
-                    type="password"
-                    class="input"
-                    data-type="password"
-                  />
-                </div>
-                <div class="group">
-                  <label for="age" class="label">Age</label>
-                  <input id="age" type="number" class="input" />
-                </div>
-                <div class="group">
-                  <label for="major" class="label">Major</label>
-                  <input id="major" type="text" class="input" />
-                </div>
-                <div class="group">
-                  <input type="radio" id="male" name="age" value="child" />
-                  <label for="male">Male</label>
-                  <input type="radio" id="female" name="age" value="adult" />
-                  <label for="female">Female</label>
-                </div>
-                <div class="group">
-                  <input type="submit" class="button" value="Sign Up" />
-                </div>
-                <br />
-                <div class="foot-lnk">
-                  <label for="tab-1">Already Member?</label>
-                </div>
+              <div class="group">
+                <label for="password" class="label">Password</label>
+                <input
+                  type="password"
+                  id="pass"
+                  name="password"
+                  class="input"
+                  required
+                />
               </div>
-            </form>
-          </div>
+              <div class="group">
+                <button type="submit" class="button">Sign In</button>
+              </div>
+            </div>
+          </form>
+          <form class="form" id="signUpForm">
+            <div class="sign-up-htm">
+              <div class="group">
+                <label for="name" class="label">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="input"
+                  required
+                />
+              </div>
+              <div class="group">
+                <label for="email" class="label">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="input"
+                  required
+                />
+              </div>
+              <div class="group">
+                <label for="password" class="label">Password</label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="input"
+                  required
+                />
+              </div>
+              <div class="group">
+                <label for="gender" class="label">Gender</label>
+                <select id="gender" class="input" required>
+                  <option disabled selected hidden></option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+              <div class="group">
+                <label for="age" class="label">Age</label>
+                <input id="age" type="number" class="input" />
+              </div>
+              <div class="group">
+                <label for="major" class="label">Major</label>
+                <input id="major" type="text" class="input" />
+              </div>
+              <div class="group">
+                <button type="submit" class="button">Sign up</button>
+              </div>
+            </div>
+          </form>
         </div>
-      </form>
+      </div>
     </div>
+    <script>
+      const signInForm = document.getElementById("signInForm");
+
+      const signIn = async () => {
+        // Object
+        const email = document.getElementById("mail").value;
+        const password = document.getElementById("pass").value;
+
+        var data = {
+          email: email,
+          password: password,
+        };
+
+        const response = await fetch(
+          "http://localhost:3000/sfe-rs/registration/signin/",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          }
+        )
+          .then((response) => {
+            if (response.ok) {
+              // Request was successful
+              const json = response.json();
+              console.log(json);
+            } else {
+              // Request failed
+              throw new Error("Error: " + response.status);
+            }
+          })
+          .then((responseData) => {
+            // Process the response if needed
+            console.log(responseData);
+          })
+          .catch((error) => {
+            // Handle any errors
+            console.log(error);
+          });
+      };
+
+      signInForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        signIn();
+      });
+
+      /* ======================================================================
+                                    Sign Up Form
+         ====================================================================== */
+      const signUpForm = document.getElementById("signUpForm");
+
+      const signUp = async () => {
+        // Object
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const age = document.getElementById("age").value;
+        const major = document.getElementById("major").value;
+        const genderSelect = document.getElementById("gender");
+        const gender = genderSelect.options[genderSelect.selectedIndex].value;
+
+        var data = {
+          name: name,
+          email: email,
+          password: password,
+          gender: gender,
+          age: age,
+          major: major,
+        };
+
+        console.log(data);
+        const response = await fetch(
+          "http://localhost:3000/sfe-rs/registration/signup/",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          }
+        )
+          .then((response) => {
+            if (response.ok) {
+              // Request was successful
+              const json = response.json();
+
+              console.log(json);
+            } else {
+              // Request failed
+              throw new Error("Error: " + response.status);
+            }
+          })
+          .then((responseData) => {
+            // Process the response if needed
+            console.log(responseData);
+          })
+          .catch((error) => {
+            // Handle any errors
+            console.log(error);
+          });
+      };
+
+      signUpForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        signUp();
+      });
+    </script>
   </body>
 </html>

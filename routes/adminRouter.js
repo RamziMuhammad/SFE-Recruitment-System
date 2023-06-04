@@ -1,5 +1,6 @@
 const express = require("express"),
   adminRouter = express.Router();
+const { User } = require("../models/user");
 
 const path = require("path");
 const directoryPath = path.dirname(require.main.filename);
@@ -17,35 +18,35 @@ const {
 } = require("../controllers/adminController");
 
 adminRouter.get(
-  "/:id",
-  currentUser,
-  requireAuth,
-  isAuthorizedUser(),
-  getApplicant
-);
-
-adminRouter.get(
-  "/",
+  "/applicants",
   currentUser,
   requireAuth,
   isAuthorizedUser(),
   getAllApplicants
 );
 
-adminRouter.delete(
-  "/:id",
+adminRouter.get(
+  "/applicants/:id",
   currentUser,
   requireAuth,
   isAuthorizedUser(),
-  deleteApplicant
+  getApplicant
 );
 
 adminRouter.delete(
-  "/",
+  "/applicants",
   currentUser,
   requireAuth,
   isAuthorizedUser(),
   deleteAllApplicants
+);
+
+adminRouter.delete(
+  "/applicants/:id",
+  currentUser,
+  requireAuth,
+  isAuthorizedUser(),
+  deleteApplicant
 );
 
 module.exports = {

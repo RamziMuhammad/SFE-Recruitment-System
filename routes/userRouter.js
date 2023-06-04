@@ -17,8 +17,12 @@ userRouter.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/home.html"));
 });
 
+userRouter.get("/registration/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/registration.html"));
+});
+
 userRouter.post(
-  "/signup/",
+  "/registration/signup/",
   [
     body("name")
       .notEmpty()
@@ -35,7 +39,7 @@ userRouter.post(
     body("password")
       .notEmpty()
       .withMessage("Password is required!")
-      .trim()
+      .trim() // Removes leading and trailing whitespace characters from a string.
       .matches(/[a-zA-Z]/)
       .withMessage("Password must contain at least one letter!")
       .isLength({ min: 5, max: 20 })
@@ -47,12 +51,8 @@ userRouter.post(
   signUp
 );
 
-userRouter.get("/registration/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../views/registration.html"));
-});
-
 userRouter.post(
-  "/signin/",
+  "/registration/signin/",
   [
     body("email")
       .notEmpty()

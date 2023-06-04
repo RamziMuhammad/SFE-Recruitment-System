@@ -13,6 +13,9 @@ const userSchema = Schema({
   password: {
     type: String,
   },
+  gender: {
+    type: String,
+  },
   age: {
     type: Number,
     min: 18,

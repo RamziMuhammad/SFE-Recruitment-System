@@ -159,12 +159,10 @@ h6 {
   color: #fff;
   background: #31a9e1;
 }
-/**
-**/
 
-/**
-* Desktop Navigation 
-*/
+/*
+ * Desktop Navigation 
+ */
 .navbar {
   padding: 0;
 }
@@ -272,9 +270,9 @@ h6 {
   }
 }
 
-/**
-* Mobile Navigation 
-*/
+/*
+ * Mobile Navigation 
+ */
 .mobile-nav-toggle {
   color: #364146;
   font-size: 28px;
@@ -381,12 +379,12 @@ h6 {
   display: block;
 }
 
-/*--------------------------------------------------------------
-# Hero Section
---------------------------------------------------------------*/
+/*
+ * Hero Section
+ */
 #hero {
   width: 100%;
-  background-image: url("../img/hero-bg.png");
+  background-image: url("../img/Hero-Bg.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right top;
@@ -416,7 +414,6 @@ h6 {
   display: inline-block;
   padding: 12px 28px;
   border-radius: 3px;
-  /*transition: 0.5s;*/
   color: #fff;
   background: #009cea;
   position: relative;
@@ -448,11 +445,11 @@ h6 {
   width: 70%;
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   #hero {
     background-attachment: fixed;
   }
-}
+} */
 
 @media (max-width: 992px) {
   #hero h1 {
@@ -465,9 +462,9 @@ h6 {
   }
 }
 
-/*--------------------------------------------------------------
-# Sections General
---------------------------------------------------------------*/
+/*
+ * Sections General
+ */
 section {
   padding: 60px 0;
   overflow: hidden;
@@ -495,9 +492,9 @@ section {
   margin-bottom: 0;
 }
 
-/*--------------------------------------------------------------
-# About
---------------------------------------------------------------*/
+/*
+ * About
+ */
 .about {
   padding: 0;
   margin-top: 40px;
@@ -890,7 +887,7 @@ section {
       rgba(255, 255, 255, 0.8),
       rgba(255, 255, 255, 0.8)
     ),
-    url("../img/cta-bg.jpg") center center;
+    url("../img/Cta-Bg.jpg") center center;
   background-size: cover;
   padding: 80px 0;
 }
@@ -1019,16 +1016,21 @@ section {
   background-color: #009cea;
 }
 
-/*--------------------------------------------------------------
-# Team
---------------------------------------------------------------*/
+/*
+ * Team
+ */
 .team {
-  background: url("../img/team-bg.jpg") center center no-repeat;
+  background: url("../img/Team-Bg.jpg") center center no-repeat;
   background-size: cover;
   padding: 60px 0;
   position: relative;
 }
-
+.members-row {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .team::before {
   content: "";
   position: absolute;
@@ -1047,7 +1049,8 @@ section {
 
 .team .member {
   text-align: center;
-  margin-bottom: 80px;
+  width: 228px;
+  margin: 0 50px 80px 50px;
   position: relative;
 }
 
@@ -1057,7 +1060,7 @@ section {
 
 .team .member .member-info {
   position: absolute;
-  top: 85%;
+  top: 90%;
   left: 20px;
   right: 20px;
   background: #fff;
@@ -1123,9 +1126,9 @@ section {
   }
 }
 
-/*--------------------------------------------------------------
-# Clients
---------------------------------------------------------------*/
+/*
+ * Clients
+ */
 .clients .clients-wrap {
   border-top: 1px solid #eceff0;
   border-left: 1px solid #eceff0;
@@ -1157,9 +1160,9 @@ section {
   transition: all 0.4s ease-in-out;
 }
 
-/*--------------------------------------------------------------
-# Pricing
---------------------------------------------------------------*/
+/*
+ * Pricing
+ */
 .pricing .box {
   padding: 20px;
   background: #fff;
@@ -1270,9 +1273,9 @@ section {
   color: #fff;
 }
 
-/*--------------------------------------------------------------
-# Frequently Asked Questions
---------------------------------------------------------------*/
+/*
+ * Frequently Asked Questions
+ */
 .faq {
   padding: 60px 0;
 }
@@ -1335,9 +1338,9 @@ section {
   transition: 0.6s;
 }
 
-/*--------------------------------------------------------------
-# Contact
---------------------------------------------------------------*/
+/*
+ * Contact
+ */
 .contact .info {
   padding: 30px;
   background: #fff;
@@ -1497,9 +1500,9 @@ section {
   }
 }
 
-/*--------------------------------------------------------------
-# Breadcrumbs
---------------------------------------------------------------*/
+/*
+ * Breadcrumbs
+ */
 .breadcrumbs {
   padding: 15px 0;
   background: #f4f6f7;
@@ -1532,9 +1535,9 @@ section {
   content: "/";
 }
 
-/*--------------------------------------------------------------
-# Footer
---------------------------------------------------------------*/
+/*
+ * Footer
+ */
 #footer {
   background: #f7f8f9;
   padding: 0 0 30px 0;

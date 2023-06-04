@@ -17,6 +17,7 @@ const signUp = async (req, res) => {
   } else {
     // Add new user
     const newUser = await User.create(req.body);
+    console.log(newUser);
     res.status(200).send("User created.");
   }
 };

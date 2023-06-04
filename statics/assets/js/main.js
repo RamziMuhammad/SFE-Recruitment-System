@@ -1,10 +1,7 @@
-/**
- *
- */
 (function () {
   "use strict";
 
-  /**
+  /*
    * Easy selector helper function
    */
   const select = (el, all = false) => {
@@ -16,7 +13,7 @@
     }
   };
 
-  /**
+  /*
    * Easy event listener function
    */
   const on = (type, el, listener, all = false) => {
@@ -30,14 +27,14 @@
     }
   };
 
-  /**
+  /*
    * Easy on scroll event listener
    */
   const onscroll = (el, listener) => {
     el.addEventListener("scroll", listener);
   };
 
-  /**
+  /*
    * Navbar links active state on scroll
    */
   let navbarlinks = select("#navbar .scrollto", true);
@@ -60,7 +57,7 @@
   window.addEventListener("load", navbarlinksActive);
   onscroll(document, navbarlinksActive);
 
-  /**
+  /*
    * Scrolls to an element with header offset
    */
   const scrollto = (el) => {
@@ -74,7 +71,7 @@
     });
   };
 
-  /**
+  /*
    * Toggle .header-scrolled class to #header when page is scrolled
    */
   let selectHeader = select("#header");
@@ -90,7 +87,7 @@
     onscroll(document, headerScrolled);
   }
 
-  /**
+  /*
    * Back to top button
    */
   let backtotop = select(".back-to-top");
@@ -106,7 +103,7 @@
     onscroll(document, toggleBacktotop);
   }
 
-  /**
+  /*
    * Mobile nav toggle
    */
   on("click", ".mobile-nav-toggle", function (e) {
@@ -130,7 +127,7 @@
     true
   );
 
-  /**
+  /*
    * Scrool with ofset on links with a class name .scrollto
    */
   on(
@@ -153,7 +150,7 @@
     true
   );
 
-  /**
+  /*
    * Scroll with ofset on page load with hash links in the url
    */
   window.addEventListener("load", () => {
@@ -164,7 +161,7 @@
     }
   });
 
-  /**
+  /*
    * Porfolio isotope and filter
    */
   window.addEventListener("load", () => {
@@ -199,7 +196,7 @@
     }
   });
 
-  /**
+  /*
    * Animation on scroll
    */
   window.addEventListener("load", () => {
@@ -211,10 +208,14 @@
     });
   });
 
-  // Updoad video
-  const form = document.getElementById("uploadForm");
+  /*
+  =======================================================
+   * Updoad video (uploadVideo.html)
+  =======================================================
+  */
+  const uploadForm = document.getElementById("uploadForm");
 
-  const sendFiles = async () => {
+  const uploadVideo = async () => {
     // Object
     const myFiles = document.getElementById("myVideo").files;
 
@@ -236,8 +237,8 @@
     console.log(json);
   };
 
-  form.addEventListener("submit", (e) => {
+  uploadForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    sendFiles();
+    uploadVideo();
   });
 })();
