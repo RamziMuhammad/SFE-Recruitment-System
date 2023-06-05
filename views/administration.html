@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administration | SFE RS</title>
+    <link href="assets/img/SFE-RS.png" rel="icon" />
+    <link
+      href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/registration.css" rel="stylesheet" />
+    <link href="assets/css/administration.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center">
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li>
+              <a class="nav-link scrollto" href="../">Home</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="../#about">About</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="../#services">Services</a>
+            </li>
+
+            <li><a class="nav-link scrollto" href="../#team">Team</a></li>
+
+            <li><a class="nav-link scrollto" href="../#contact">Contact</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- ======= LandingPage Section ======= -->
+    <section id="hero">
+      <div class="container">
+        <div class="row">
+          <div
+            class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center"
+            data-aos="fade-up"
+          >
+            <div>
+              <h1>Take the lead!</h1>
+              <h2>We made sure you were authorized to take control</h2>
+
+              <div class="login-wrap">
+                <div class="login-html">
+                  <input
+                    id="tab-1"
+                    type="radio"
+                    name="tab"
+                    class="sign-in"
+                    checked
+                  /><label for="tab-1" class="tab">List all applicants</label>
+                  <input
+                    id="tab-2"
+                    type="radio"
+                    name="tab"
+                    class="sign-up"
+                  /><label for="tab-2" class="tab">Delete all applicants</label>
+
+                  <input
+                    id="tab-3"
+                    type="radio"
+                    name="tab"
+                    class="delete-one"
+                  /><label for="tab-3" class="tab">Delete an applicant</label>
+
+                  <div class="login-form">
+                    <form class="form" id="listApplicants">
+                      <div class="sign-in-htm">
+                        <button type="submit" class="btn-get-started scrollto">
+                          Get them all
+                        </button>
+                      </div>
+                    </form>
+                    <form class="form" id="deleteApplicants">
+                      <div class="sign-up-htm">
+                        <button type="submit" class="btn-get-started scrollto">
+                          Get rid of them
+                        </button>
+                      </div>
+                    </form>
+                    <form class="form" id="deleteOne">
+                      <div class="delete-one-htm">
+                        <div class="group">
+                          <label for="appId" class="label">Applicant ID</label>
+                          <input id="appId" type="text" class="input" />
+                        </div>
+                        <div class="group">
+                          <button
+                            type="submit"
+                            class="btn-get-started scrollto"
+                          >
+                            Kick it out
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-lg-6 order-1 order-lg-2 hero-img"
+            data-aos="fade-left"
+          >
+            <img
+              src="assets/img/Job.png"
+              class="img-fluid"
+              alt=""
+              style="width: 650px"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End LandingPage -->
+
+    <div class="table-container">
+      <table id="example" class="display" style="width: 100%">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Age</th>
+            <th>Start date</th>
+            <th>Salary</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tiger Nixon</td>
+            <td>System Architect</td>
+            <td>Edinburgh</td>
+            <td>61</td>
+            <td>2011-04-25</td>
+            <td>$320,800</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/administration.js"></script>
+  </body>
+</html>

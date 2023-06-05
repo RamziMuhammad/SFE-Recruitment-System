@@ -1,6 +1,5 @@
 const express = require("express"),
   adminRouter = express.Router();
-const { User } = require("../models/user");
 
 const path = require("path");
 const directoryPath = path.dirname(require.main.filename);
@@ -17,6 +16,10 @@ const {
   deleteApplicant,
 } = require("../controllers/adminController");
 
+adminRouter.get("/administration", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/administration.html"));
+});
+
 adminRouter.get(
   "/applicants",
   currentUser,
@@ -26,7 +29,7 @@ adminRouter.get(
 );
 
 adminRouter.get(
-  "/applicants/:id",
+  "/applicant/:id",
   currentUser,
   requireAuth,
   isAuthorizedUser(),
@@ -42,7 +45,7 @@ adminRouter.delete(
 );
 
 adminRouter.delete(
-  "/applicants/:id",
+  "/applicant/:id",
   currentUser,
   requireAuth,
   isAuthorizedUser(),

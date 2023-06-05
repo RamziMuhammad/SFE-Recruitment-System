@@ -1,9 +1,8 @@
 body {
-  width: 80vw; /* Set the body width to 80% of the viewport width */
   margin: 0; /* Remove default body margin */
   padding: 0; /* Remove default body padding */
-  font: 600 16px/18px "Open Sans", sans-serif;
-  color: #6a6f8c;
+  /* font: 600 16px/18px "Open Sans", sans-serif;
+  color: #6a6f8c; */
   background: #fff;
 
   margin-left: auto; /* Optional styles to center the body horizontally */
@@ -15,7 +14,7 @@ body {
   box-sizing: border-box;
 }
 .box {
-  margin: 72px 0px;
+  margin: 53px 0px;
 }
 .clearfix:after,
 .clearfix:before {
@@ -64,7 +63,8 @@ a {
   padding: 20px 50px 50px 50px;
 }
 .login-html .sign-in-htm,
-.login-html .sign-up-htm {
+.login-html .sign-up-htm,
+.login-html .delete-one-htm {
   top: 0;
   left: 0;
   right: 0;
@@ -76,6 +76,7 @@ a {
 }
 .login-html .sign-in,
 .login-html .sign-up,
+.login-html .delete-one,
 .login-form .group .check {
   display: none;
 }
@@ -93,9 +94,10 @@ a {
   border-bottom: 2px solid transparent;
 }
 .login-html .sign-in:checked + .tab,
-.login-html .sign-up:checked + .tab {
+.login-html .sign-up:checked + .tab,
+.login-html .delete-one:checked + .tab {
   color: #000;
-  border-color: #1161ee;
+  border-color: #009cea;
 }
 .login-form {
   min-height: 345px;
@@ -120,7 +122,7 @@ a {
   border-right: inherit;
   border-left: inherit;
   color: #000;
-  padding: 15px 20px;
+  padding: 11px 16px;
 }
 .login-form .group .button {
   color: #fff;
@@ -134,10 +136,13 @@ a {
   font-size: 12px;
 }
 .login-form .group .button {
-  background: #1161ee;
+  background: #009cea;
   border-radius: 50px;
   border: none;
   margin-top: 40px;
+}
+.login-form .group .button:hover {
+  background: #008bd1;
 }
 .login-form .group label .icon {
   width: 15px;
@@ -146,6 +151,16 @@ a {
   position: relative;
   display: inline-block;
   background: rgba(255, 255, 255, 0.1);
+}
+.login-form .group label .icon:before,
+.login-form .group label .icon:after {
+  content: "";
+  width: 10px;
+  height: 2px;
+  background: #fff;
+
+  position: absolute;
+  transition: all 0.2s ease-in-out 0s;
 }
 .login-form .group label .icon:before,
 .login-form .group label .icon:after {
@@ -168,7 +183,6 @@ a {
   right: 0;
   transform: scale(0) rotate(0);
 }
-
 .login-form .group .check:checked + label {
   color: #c4aeae;
 }
