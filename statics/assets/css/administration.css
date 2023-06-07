@@ -52,6 +52,7 @@
   transform: rotate(0);
 }
 .table-container {
+  display: none; /* Hide the section by default */
   width: 80vw; /* Set the body width to 80% of the viewport width */
   margin: 72px 0;
   padding: 20px;
@@ -88,6 +89,11 @@ td {
 }
 td {
   border-top: 1px solid #ddd;
+}
+tr#disabled-row {
+  pointer-events: none;
+  background-color: #ccc;
+  opacity: 0.5;
 }
 thead:first-child tr:first-child th:first-child,
 tbody:first-child tr:first-child td:first-child {

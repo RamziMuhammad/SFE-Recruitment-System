@@ -1685,3 +1685,23 @@ section {
   font-size: 13px;
   color: #364146;
 }
+
+/*
+ * uploadVideo.html
+ */
+.uploadBtn,
+.uploadBtn:focus {
+  padding: 8px 20px;
+  margin-left: 30px;
+  border-radius: 50px;
+  color: #7b909a;
+  background: #fcfcfc;
+  font-size: 14px;
+  border: 2px solid #47b2e4;
+  font-weight: 600;
+}
+.uploadBtn:hover,
+.uploadBtn:focus:hover {
+  color: #fff;
+  background: #31a9e1;
+}

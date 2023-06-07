@@ -208,3 +208,10 @@
     });
   });
 })();
+
+function activateSignUpForm() {
+  sessionStorage.setItem("selectedOption", "SignUp");
+}
+function activateSignInForm() {
+  sessionStorage.setItem("selectedOption", "SignIn");
+}

@@ -36,7 +36,7 @@ const uploadVideo = async (req, res) => {
   });
 
   const pythonProcess = spawn("python", [
-    `${directoryPath}\\Speech-Recognition.py`,
+    `${directoryPath}\\ML-Models\\Text.py`,
     directoryPath,
     vidoePath, // The video name
   ]);

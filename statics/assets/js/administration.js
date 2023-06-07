@@ -2,7 +2,76 @@ $(document).ready(function () {
   $("#example").DataTable({
     pagingType: "full_numbers",
   });
+
+  const table = $("#example");
+  $("#tableBody").detach();
+  table.append(`
+          <tbody id="tableBody">
+          </tbody>
+          `);
 });
+
+/*
+ * List All Applicants
+ */
+
+const listApplicantsForm = document.getElementById("listApplicants");
+
+const listApplicants = async () => {
+  var tableContainer = document.getElementById("table-container");
+  if ((tableContainer.style.display = "none")) {
+    tableContainer.style.display = "block"; // Show the section
+  }
+
+  // var displayValue = window
+  //   .getComputedStyle(tableVisibility)
+  //   .getPropertyValue("display");
+
+  // if (displayValue === "none") {
+  //   tableVisibility.classList.toggle("hidden");
+  // }
+
+  const response = await fetch(
+    "http://localhost:3000/sfe-rs/admin/applicants",
+    {
+      method: "GET",
+    }
+  );
+  $("#tableRow").detach();
+  const tableBody = $("#tableBody");
+  if (response.ok) {
+    const data = await response.json();
+    data.forEach((row) => {
+      tableBody.append(`
+            <tr id="tableRow">
+              <td>${row._id}</td>
+              <td>${row.name}</td>
+              <td>${row.email}</td>
+              <td>${row.gender}</td>
+              <td>${row.age}</td>
+              <td>${row.major}</td>
+            </tr>
+      `);
+    });
+
+    const table = $("#example").DataTable();
+    table.destroy();
+    $("#example").DataTable({
+      pagingType: "full_numbers",
+    });
+  } else {
+    throw new Error("Request failed with status " + response.status);
+  }
+};
+
+listApplicantsForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  listApplicants();
+});
+
+/*
+ * Delete All Applicants
+ */
 
 const deleteApplicantsForm = document.getElementById("deleteApplicants");
 
