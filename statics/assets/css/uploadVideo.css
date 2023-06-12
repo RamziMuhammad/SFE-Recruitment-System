@@ -6,6 +6,7 @@
 }
 .analysis-partition {
   display: none;
+  margin: 20px;
 }
 .waiting-container {
   display: none;
@@ -66,8 +67,8 @@
 }
 
 #chart {
-  padding-top: 50px;
-  min-width: 650px;
-  min-height: 400px;
+  padding-top: 30px;
+  width: 650px;
+  height: 300px;
   margin: 0 auto;
 }

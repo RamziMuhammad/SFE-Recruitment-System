@@ -38,35 +38,33 @@ const uploadVideo = async () => {
     uploadingPartition.style.display = "none";
     analysisPartition.style.display = "block";
 
-    // Assuming you have an array of percentages for the five traits
-    const percentages = [30, 50, 70, 90, 60];
-
-    // Load the Google Charts library
     google.charts.load("current", { packages: ["bar"] });
     google.charts.setOnLoadCallback(drawChart);
 
-    // Create and draw the chart
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
-        ["Personality Traits", "Percentage"],
-        ["Openness", percentages[0]],
-        ["Conscientiousness", percentages[1]],
-        ["Extraversion", percentages[2]],
-        ["Agreeableness", percentages[3]],
-        ["Neuroticism", percentages[4]],
+        ["Personality Traits", "Percentage %ㅤㅤ"],
+        ["Openness", personalityTraits.openness],
+        ["Conscientiousness", personalityTraits.conscientiousness],
+        ["Extraversion", personalityTraits.extraversion],
+        ["Agreeableness", personalityTraits.agreeableness],
+        ["Neuroticism", personalityTraits.neuroticism],
       ]);
 
       var options = {
         animation: {
           duration: 2000,
           easing: "out",
+          colors: ["#3498db"],
         },
       };
 
       var chart = new google.charts.Bar(document.getElementById("chart"));
       chart.draw(data, google.charts.Bar.convertOptions(options));
     }
-  } catch {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 uploadForm.addEventListener("submit", (e) => {
