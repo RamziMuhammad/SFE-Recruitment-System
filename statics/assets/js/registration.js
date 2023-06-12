@@ -102,14 +102,9 @@ signUpForm.addEventListener("submit", (e) => {
 });
 
 function signOut() {
-  // Clear any cookies related to the session
-  // document.cookie =
-  //   "sessionID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-
   // Clear any session-specific data stored in sessionStorage
   sessionStorage.clear();
   const response = fetch("http://localhost:3000/sfe-rs/signout", {
     method: "POST",
   });
-  // location.reload();
 }

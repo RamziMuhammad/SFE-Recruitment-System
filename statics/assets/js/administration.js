@@ -23,14 +23,6 @@ const listApplicants = async () => {
     tableContainer.style.display = "block"; // Show the section
   }
 
-  // var displayValue = window
-  //   .getComputedStyle(tableVisibility)
-  //   .getPropertyValue("display");
-
-  // if (displayValue === "none") {
-  //   tableVisibility.classList.toggle("hidden");
-  // }
-
   const response = await fetch(
     "http://localhost:3000/sfe-rs/admin/applicants",
     {
@@ -72,7 +64,6 @@ listApplicantsForm.addEventListener("submit", (e) => {
 /*
  * Delete All Applicants
  */
-
 const deleteApplicantsForm = document.getElementById("deleteApplicants");
 
 const deleteAllApplicants = async () => {

@@ -1,14 +1,4 @@
-/**
-* Template Name: Scaffold
-* Updated: Mar 10 2023 with Bootstrap v5.2.3
-* Template URL: https://bootstrapmade.com/scaffold-bootstrap-metro-style-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
-/*--------------------------------------------------------------
-# General
---------------------------------------------------------------*/
+/* --------------- General --------------- */
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
@@ -33,9 +23,7 @@ h6 {
   font-family: "Raleway", sans-serif;
 }
 
-/*--------------------------------------------------------------
-# Back to top button
---------------------------------------------------------------*/
+/* --------------- Back to top button --------------- */
 .back-to-top {
   position: fixed;
   visibility: hidden;
@@ -66,18 +54,14 @@ h6 {
   opacity: 1;
 }
 
-/*--------------------------------------------------------------
-# Disable AOS delay on mobile
---------------------------------------------------------------*/
+/* --------------- Disable AOS delay on mobile --------------- */
 @media screen and (max-width: 768px) {
   [data-aos-delay] {
     transition-delay: 0 !important;
   }
 }
 
-/*--------------------------------------------------------------
-# Header
---------------------------------------------------------------*/
+/* --------------- Header --------------- */
 #header {
   height: 72px;
   transition: all 0.5s;
@@ -111,9 +95,7 @@ h6 {
   max-height: 40px;
 }
 
-/*--------------------------------------------------------------
-# Header Social Links
---------------------------------------------------------------*/
+/* --------------- Header Social Links --------------- */
 .header-social-links {
   margin: 20px 0 0 30px;
 }
@@ -136,9 +118,7 @@ h6 {
   color: #009cea;
 }
 
-/*--------------------------------------------------------------
-# Navigation Menu
---------------------------------------------------------------*/
+/* --------------- Navigation Menu --------------- */
 .signupBtn {
   display: block;
 }
@@ -396,7 +376,8 @@ h6 {
   width: 100%;
   background-image: url("../img/Hero-Bg.png");
   background-repeat: no-repeat;
-  background-size: contain;
+  /* background-size: contain; */
+  background-size: 400px;
   background-position: right top;
   margin-top: 70px;
   padding: 60px 0;
@@ -454,12 +435,6 @@ h6 {
 #hero .hero-img img {
   width: 70%;
 }
-
-/* @media (min-width: 1024px) {
-  #hero {
-    background-attachment: fixed;
-  }
-} */
 
 @media (max-width: 992px) {
   #hero h1 {
@@ -548,9 +523,7 @@ section {
   margin-bottom: 0;
 }
 
-/*--------------------------------------------------------------
-# Features
---------------------------------------------------------------*/
+/* --------------- Features --------------- */
 .features {
   padding-bottom: 40px;
 }
@@ -618,9 +591,7 @@ section {
   }
 }
 
-/*--------------------------------------------------------------
-# Services
---------------------------------------------------------------*/
+/* --------------- Services --------------- */
 .services .icon-box {
   padding: 30px;
   position: relative;
@@ -692,9 +663,7 @@ section {
   border-color: #2282ff;
 }
 
-/*--------------------------------------------------------------
-# Portfolio
---------------------------------------------------------------*/
+/* --------------- Portfolio --------------- */
 .portfolio .portfolio-item {
   margin-bottom: 30px;
 }
@@ -818,9 +787,7 @@ section {
   bottom: calc(50% - 50px);
 }
 
-/*--------------------------------------------------------------
-# Portfolio Details
---------------------------------------------------------------*/
+/* --------------- Portfolio Details --------------- */
 .portfolio-details {
   padding-top: 40px;
 }
@@ -889,9 +856,7 @@ section {
   padding: 0;
 }
 
-/*--------------------------------------------------------------
-# Cta
---------------------------------------------------------------*/
+/* --------------- Cta --------------- */
 .cta {
   background: linear-gradient(
       rgba(255, 255, 255, 0.8),
@@ -944,9 +909,7 @@ section {
   }
 }
 
-/*--------------------------------------------------------------
-# Testimonials
---------------------------------------------------------------*/
+/* --------------- Testimonials --------------- */
 .testimonials .testimonials-carousel,
 .testimonials .testimonials-slider {
   overflow: hidden;

@@ -24,6 +24,9 @@ applicantRouter.get("/upload-video/", (req, res) => {
 applicantRouter.get("/waiting/", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/waiting.html"));
 });
+applicantRouter.get("/personality-analysis/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/analysis.html"));
+});
 
 applicantRouter.get("/get-my-info", currentUser, requireAuth, getMyInfo);
 

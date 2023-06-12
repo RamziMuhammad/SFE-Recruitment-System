@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chart Example</title>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <style>
+      #chart {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="chart"></div>
+
+    <script>
+      // Assuming you have an array of percentages for the five traits
+      const percentages = [30, 50, 70, 90, 60];
+
+      // Load the Google Charts library
+      google.charts.load("current", { packages: ["bar"] });
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Create and draw the chart
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ["Trait", "Percentage"],
+          ["Trait 1", percentages[0]],
+          ["Trait 2", percentages[1]],
+          ["Trait 3", percentages[2]],
+          ["Trait 4", percentages[3]],
+          ["Trait 5", percentages[4]],
+        ]);
+
+        var options = {
+          animation: {
+            duration: 2000,
+            easing: "out",
+          },
+        };
+
+        var chart = new google.charts.Bar(document.getElementById("chart"));
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
+  </body>
+</html>

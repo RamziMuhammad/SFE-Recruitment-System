@@ -1,10 +1,7 @@
 body {
   margin: 0; /* Remove default body margin */
   padding: 0; /* Remove default body padding */
-  /* font: 600 16px/18px "Open Sans", sans-serif;
-  color: #6a6f8c; */
   background: #fff;
-
   margin-left: auto; /* Optional styles to center the body horizontally */
   margin-right: auto;
 }
