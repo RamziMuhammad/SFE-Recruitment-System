@@ -7,7 +7,7 @@ const path = require("path");
 const directoryPath = path.dirname(require.main.filename);
 userRouter.use(express.static(path.join(directoryPath, "statics")));
 
-const { signIn, signUp } = require("../controllers/userController");
+const { signUp, signIn, signOut } = require("../controllers/userController");
 
 const { isAuthorizedUser } = require("../middlewares/checkRole"),
   currentUser = require("../middlewares/current-user"),
@@ -46,8 +46,6 @@ userRouter.post(
       .withMessage("Password must be between 5 and 20 characters!"),
   ],
   validateRequest,
-  currentUser,
-  isAuthorizedUser("admin"),
   signUp
 );
 
@@ -70,6 +68,8 @@ userRouter.post(
   validateRequest,
   signIn
 );
+
+userRouter.post("/signout/", signOut);
 
 module.exports = {
   userRouter,

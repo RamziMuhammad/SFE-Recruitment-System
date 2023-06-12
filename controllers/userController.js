@@ -17,8 +17,11 @@ const signUp = async (req, res) => {
   } else {
     // Add new user
     const newUser = await User.create(req.body);
-    console.log(newUser);
-    res.status(200).send("User created.");
+    console.log("User created.");
+    res.status(200).json({
+      status: "Success",
+      message: `User created.`,
+    });
   }
 };
 
@@ -56,6 +59,7 @@ const signIn = async (req, res) => {
             res.status(200).json({
               status: "Success",
               message: `Signed in Successfully`,
+              role: user.role,
             });
           } else {
             res.status(400).send("Invalid password!");
@@ -68,7 +72,14 @@ const signIn = async (req, res) => {
   }
 };
 
+const signOut = async (req, res) => {
+  req.session = null;
+
+  res.send({});
+};
+
 module.exports = {
   signUp,
   signIn,
+  signOut,
 };

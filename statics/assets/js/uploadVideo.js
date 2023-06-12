@@ -1,7 +1,6 @@
 const uploadForm = document.getElementById("uploadForm");
 
 const uploadVideo = async () => {
-  // Object
   const myFiles = document.getElementById("myVideo").files;
 
   const formData = new FormData();
@@ -17,9 +16,8 @@ const uploadVideo = async () => {
       body: formData,
     }
   );
-
-  const json = await response.json();
-  console.log(json);
+  const data = await response.json();
+  console.log(data);
 };
 
 uploadForm.addEventListener("submit", (e) => {

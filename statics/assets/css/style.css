@@ -139,12 +139,22 @@ h6 {
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
+.signupBtn {
+  display: block;
+}
+.loginBtn {
+  display: block;
+}
+.signoutBtn {
+  display: none;
+}
 #login {
   float: right;
   margin-left: 350px;
 }
 .navbar .getstarted,
 .navbar .getstarted:focus {
+  display: none; /* Hide the section by default */
   padding: 8px 20px;
   margin-left: 30px;
   border-radius: 50px;

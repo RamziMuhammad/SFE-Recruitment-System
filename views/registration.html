@@ -70,13 +70,15 @@
           type="radio"
           name="tab"
           class="sign-in"
-          checked
+          value="SignIn"
         /><label for="tab-1" class="tab">Sign In</label>
-        <input id="tab-2" type="radio" name="tab" class="sign-up" /><label
-          for="tab-2"
-          class="tab"
-          >Sign Up</label
-        >
+        <input
+          id="tab-2"
+          type="radio"
+          name="tab"
+          class="sign-up"
+          value="SignUp"
+        /><label for="tab-2" class="tab">Sign Up</label>
         <div class="login-form">
           <form class="form" id="signInForm">
             <div class="sign-in-htm">
@@ -164,113 +166,6 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
-
-    <script>
-      const signInForm = document.getElementById("signInForm");
-
-      const signIn = async () => {
-        // Object
-        const email = document.getElementById("mail").value;
-        const password = document.getElementById("pass").value;
-
-        var data = {
-          email: email,
-          password: password,
-        };
-
-        const response = await fetch(
-          "http://localhost:3000/sfe-rs/registration/signin/",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-          }
-        )
-          .then((response) => {
-            if (response.ok) {
-              // Request was successful
-              const json = response.json();
-              console.log(json);
-            } else {
-              // Request failed
-              throw new Error("Error: " + response.status);
-            }
-          })
-          .then((responseData) => {
-            // Process the response if needed
-            console.log(responseData);
-          })
-          .catch((error) => {
-            // Handle any errors
-            console.log(error);
-          });
-      };
-
-      signInForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        signIn();
-      });
-
-      // Sign-up form //
-      const signUpForm = document.getElementById("signUpForm");
-
-      const signUp = async () => {
-        // Object
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-        const age = document.getElementById("age").value;
-        const major = document.getElementById("major").value;
-        const genderSelect = document.getElementById("gender");
-        const gender = genderSelect.options[genderSelect.selectedIndex].value;
-
-        var data = {
-          name: name,
-          email: email,
-          password: password,
-          gender: gender,
-          age: age,
-          major: major,
-        };
-
-        console.log(data);
-        const response = await fetch(
-          "http://localhost:3000/sfe-rs/registration/signup/",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-          }
-        )
-          .then((response) => {
-            if (response.ok) {
-              // Request was successful
-              const json = response.json();
-
-              console.log(json);
-            } else {
-              // Request failed
-              throw new Error("Error: " + response.status);
-            }
-          })
-          .then((responseData) => {
-            // Process the response if needed
-            console.log(responseData);
-          })
-          .catch((error) => {
-            // Handle any errors
-            console.log(error);
-          });
-      };
-
-      signUpForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        signUp();
-      });
-    </script>
+    <script src="assets/js/registration.js"></script>
   </body>
 </html>

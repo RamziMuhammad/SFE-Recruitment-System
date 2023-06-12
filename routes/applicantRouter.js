@@ -21,6 +21,9 @@ const {
 applicantRouter.get("/upload-video/", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/uploadVideo.html"));
 });
+applicantRouter.get("/waiting/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/waiting.html"));
+});
 
 applicantRouter.get("/get-my-info", currentUser, requireAuth, getMyInfo);
 

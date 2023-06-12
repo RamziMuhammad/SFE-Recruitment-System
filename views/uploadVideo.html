@@ -19,12 +19,14 @@
       href="assets/vendor/bootstrap/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <link
-      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
-      rel="stylesheet"
-    />
+
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/uploadVideo.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- ======= Header ======= -->
@@ -53,7 +55,7 @@
     <!-- End Header -->
 
     <!-- ======= LandingPage Section ======= -->
-    <section id="hero">
+    <section class="uploading-container" id="hero">
       <div class="container">
         <div class="row">
           <div
@@ -69,19 +71,21 @@
 
               <form id="uploadForm">
                 <div class="upload">
-                  <input
-                    type="file"
-                    id="myVideo"
-                    name="video"
-                    accept="video/*"
-                  />
-                  <button type="submit" class="btn-get-started scrollto">
+                  <button type="button" class="btn-get-started scrollto">
                     Upload video
+                    <input
+                      type="file"
+                      id="myVideo"
+                      name="video"
+                      accept="video/*"
+                    />
                   </button>
+                  <button type="submit" class="uploadBtn">Get Analysis</button>
                 </div>
               </form>
             </div>
           </div>
+
           <div
             class="col-lg-6 order-1 order-lg-2 hero-img"
             data-aos="fade-left"
@@ -97,6 +101,16 @@
       </div>
     </section>
     <!-- End LandingPage -->
+
+    <div class="waiting-container" id="waiting-container">
+      <div class="loader"></div>
+      <div class="message">Processing your video, Please wait...</div>
+      <div class="dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/aos/aos.js"></script>
