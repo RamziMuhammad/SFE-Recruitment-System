@@ -25,7 +25,7 @@ With the use of machine learning models written in Python and used by our web ap
 
 ## Requirement
 
-- NodeJS
+- <a href="https://nodejs.org/en">**Node.js**</a>
 
 ---
 
