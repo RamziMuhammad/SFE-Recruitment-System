@@ -12,14 +12,16 @@ const signUp = async (req, res) => {
 
   // Check if only email is reserved
   if (existingEmail != null) {
-    throw new BadRequestError("This email is reserved!");
-    // res.status(400).send("This email is reserved!");
+    res.status(400).json({
+      status: "failed",
+      message: `This email is reserved!`,
+    });
   } else {
     // Add new user
     const newUser = await User.create(req.body);
     console.log("User created.");
     res.status(200).json({
-      status: "Success",
+      status: "success",
       message: `User created.`,
     });
   }
@@ -57,24 +59,29 @@ const signIn = async (req, res) => {
             };
 
             res.status(200).json({
-              status: "Success",
+              status: "success",
               message: `Signed in Successfully`,
               role: user.role,
             });
           } else {
-            res.status(400).send("Invalid password!");
+            res.status(400).json({
+              status: "failed",
+              message: `Invalid Password!`,
+            });
           }
         }
       }
     );
   } else {
-    res.status(400).send("Invalid email!");
+    res.status(400).json({
+      status: "failed",
+      message: `Invalid email!`,
+    });
   }
 };
 
 const signOut = async (req, res) => {
   req.session = null;
-
   res.send({});
 };
 

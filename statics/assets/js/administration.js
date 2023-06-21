@@ -14,27 +14,26 @@ $(document).ready(function () {
 /*
  * List All Applicants
  */
-
 const listApplicantsForm = document.getElementById("listApplicants");
 
 const listApplicants = async () => {
-  var tableContainer = document.getElementById("table-container");
-  if ((tableContainer.style.display = "none")) {
-    tableContainer.style.display = "block"; // Show the section
-  }
-
-  const response = await fetch(
-    "http://localhost:3000/sfe-rs/admin/applicants",
-    {
-      method: "GET",
-    }
-  );
-  $("#tableRow").detach();
-  const tableBody = $("#tableBody");
-  if (response.ok) {
-    const data = await response.json();
-    data.forEach((row) => {
-      tableBody.append(`
+  try {
+    const response = await fetch(
+      "http://localhost:3000/sfe-rs/admin/applicants",
+      {
+        method: "GET",
+      }
+    );
+    const responseData = await response.json();
+    if (response.ok) {
+      var tableContainer = document.getElementById("table-container");
+      if ((tableContainer.style.display = "none")) {
+        tableContainer.style.display = "block"; // Show the section
+      }
+      $("#tableRow").detach();
+      const tableBody = $("#tableBody");
+      responseData.forEach((row) => {
+        tableBody.append(`
             <tr id="tableRow">
               <td>${row._id}</td>
               <td>${row.name}</td>
@@ -44,15 +43,18 @@ const listApplicants = async () => {
               <td>${row.major}</td>
             </tr>
       `);
-    });
+      });
 
-    const table = $("#example").DataTable();
-    table.destroy();
-    $("#example").DataTable({
-      pagingType: "full_numbers",
-    });
-  } else {
-    throw new Error("Request failed with status " + response.status);
+      const table = $("#example").DataTable();
+      table.destroy();
+      $("#example").DataTable({
+        pagingType: "full_numbers",
+      });
+    } else {
+      alert(responseData.message);
+    }
+  } catch (error) {
+    console.log(error);
   }
 };
 
@@ -67,15 +69,23 @@ listApplicantsForm.addEventListener("submit", (e) => {
 const deleteApplicantsForm = document.getElementById("deleteApplicants");
 
 const deleteAllApplicants = async () => {
-  const response = await fetch(
-    "http://localhost:3000/sfe-rs/admin/applicants",
-    {
-      method: "DELETE",
+  try {
+    const response = await fetch(
+      "http://localhost:3000/sfe-rs/admin/applicants",
+      {
+        method: "DELETE",
+      }
+    );
+    const responseData = await response.json();
+    if (response.ok) {
+      alert(`All applicants deleted.`);
+      location.reload();
+    } else {
+      alert(responseData.message);
     }
-  );
-
-  const json = await response.json();
-  console.log(json);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 deleteApplicantsForm.addEventListener("submit", (e) => {
@@ -90,15 +100,22 @@ const deleteOneApplicantForm = document.getElementById("deleteOne");
 
 const deleteOneApplicant = async () => {
   const appId = document.getElementById("appId").value;
-  const response = await fetch(
-    `http://localhost:3000/sfe-rs/admin/applicant/${appId}`,
-    {
-      method: "DELETE",
+  try {
+    const response = await fetch(
+      `http://localhost:3000/sfe-rs/admin/applicant/${appId}`,
+      {
+        method: "DELETE",
+      }
+    );
+    const responseData = await response.json();
+    if (response.ok) {
+      alert(responseData.message);
+    } else {
+      alert(responseData.message);
     }
-  );
-
-  const json = await response.json();
-  console.log(json);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 deleteOneApplicantForm.addEventListener("submit", (e) => {

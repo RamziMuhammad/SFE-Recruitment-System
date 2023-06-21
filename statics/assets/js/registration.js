@@ -33,14 +33,13 @@ const signIn = async () => {
         body: JSON.stringify(data),
       }
     );
-
+    const responseData = await response.json();
     if (response.ok) {
-      const responseData = await response.json();
       sessionStorage.setItem("role", responseData.role);
       sessionStorage.setItem("registrationStatus", "signedIn");
       window.location.href = "./";
     } else {
-      throw new Error("Error: " + response.status);
+      alert(responseData.message);
     }
   } catch (error) {
     console.log(error);
@@ -84,12 +83,12 @@ const signUp = async () => {
         body: JSON.stringify(data),
       }
     );
-
+    const responseData = await response.json();
     if (response.ok) {
-      const responseData = await response.json();
       window.location.href = "./";
     } else {
-      throw new Error("Error: " + response.status);
+      alert(responseData.message);
+      throw new Error("Error: " + responseData.message);
     }
   } catch (error) {
     console.log(error);

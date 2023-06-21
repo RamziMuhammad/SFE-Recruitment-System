@@ -28,7 +28,7 @@ app.use(
 );
 
 app.set("view engine", "ejs");
-app.set("views", "views");
+app.set("views", __dirname + "/views");
 
 const { userRouter } = require("./routes/userRouter");
 const { adminRouter } = require("./routes/adminRouter");

@@ -8,7 +8,10 @@ const getAllApplicants = async (req, res) => {
     const existingApplicants = await User.find({ role: "applicant" });
 
     if (existingApplicants.length == 0) {
-      res.status(400).send("No existing applicants to be shown!");
+      res.status(400).json({
+        status: "failed",
+        message: `No existing applicants to be shown!`,
+      });
     } else {
       res.status(200).send(existingApplicants);
     }
@@ -22,11 +25,11 @@ const getApplicant = async (req, res) => {
     const applicant = await User.findById(req.params.id);
 
     res.status(200).send(applicant);
-    console.log("Success!");
-    res.status(422).send("Invalid ID!");
   } catch (error) {
-    console.log("Failed");
-    res.status(422).send("Invalid ID!");
+    res.status(400).json({
+      status: "failed",
+      message: `No existing applicant with the given ID!`,
+    });
   }
 };
 
@@ -35,21 +38,26 @@ const deleteAllApplicants = async (req, res) => {
     const existingApplicants = await User.find({ role: "applicant" });
 
     if (existingApplicants.length == 0) {
-      res.status(400).send("No existing applicants to be deleted!");
+      res.status(400).json({
+        status: "failed",
+        message: `No existing applicants to be deleted!`,
+      });
     } else {
       await User.deleteMany({ role: "applicant" });
 
       if (existingApplicants.length == 1) {
-        res.status(200).send(`Only one applicant deleted sucessfully.`);
+        res.status(200).json({
+          status: "success",
+          message: `Only one applicant deleted sucessfully.`,
+        });
       } else {
-        res
-          .status(200)
-          .send(
-            `There are ${existingApplicants.length} applicants deleted sucessfully.`
-          );
+        res.status(200).json({
+          status: "success",
+          message: `There are ${existingApplicants.length} applicants deleted sucessfully.`,
+        });
       }
     }
-  } catch {
+  } catch (error) {
     res.status(400).send(error);
   }
 };
@@ -57,17 +65,25 @@ const deleteAllApplicants = async (req, res) => {
 const deleteApplicant = async (req, res) => {
   try {
     const applicant = await User.findById(req.params.id);
-
     if (applicant.role === "admin") {
-      res.status(400).send("Cannot delete an admin!");
+      res.status(400).json({
+        status: "success",
+        message: `Cannot delete an admin!`,
+      });
     } else {
       const applicantName = applicant.name;
 
       await User.deleteOne(applicant);
-      res.status(200).send(`${applicantName} was deleted successfully.`);
+      res.status(200).json({
+        status: "success",
+        message: `${applicantName} was deleted successfully.`,
+      });
     }
   } catch (error) {
-    res.status(422).send("Invalid ID!");
+    res.status(400).json({
+      status: "success",
+      message: `Invalid ID!`,
+    });
   }
 };
 

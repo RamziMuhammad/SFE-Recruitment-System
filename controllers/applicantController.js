@@ -41,8 +41,9 @@ const uploadVideo = async (req, res) => {
   try {
     let pythonOutput = "";
     pythonProcess.stdout.on("data", (data) => {
-      console.log(String(data));
-      pythonOutput += data.toString();
+      data = data.toString();
+      pythonOutput += data;
+      console.log(data);
     });
 
     pythonProcess.on("close", (code) => {
@@ -64,13 +65,13 @@ const uploadVideo = async (req, res) => {
           conscientiousness: values["conscientiousness"],
           neuroticism: values["neuroticism"],
           openness: values["openness"],
-          status: "Success",
+          status: "success",
         });
       } else {
-        console.error("Python script execution failed");
+        console.error("Python script execution failed!");
         return res.status(500).json({
           status: "error",
-          message: "Python script execution failed",
+          message: "Python script execution failed!",
         });
       }
     });
